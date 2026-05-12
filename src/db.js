@@ -2,14 +2,6 @@ import "dotenv/config";
 import pkg from "pg";
 const { Pool } = pkg;
 
-// Debug: log environment variables
-console.log("DB Config:", {
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  user: process.env.PG_USER,
-  ssl: process.env.PG_SSL,
-});
-
 export const pool = new Pool({
   host: process.env.PG_HOST || "localhost",
   port: Number(process.env.PG_PORT) || 5432,
