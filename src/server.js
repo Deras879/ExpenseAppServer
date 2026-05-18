@@ -7,6 +7,7 @@ import authMiddleware from "./middlewares/authMiddleware.js";
 import userRoutes from "./routes/userRoutes.js";
 import transactionsRoutes from "./routes/transactionsRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import savingsGoalsRoutes from "./routes/savings_goalsRoutes.js";
 import { pool } from "./db.js";
 
 const app = express();
@@ -34,4 +35,5 @@ app.get("/health", (req, res) => {
 app.use("/users", userRoutes);
 app.use("/transactions", authMiddleware, transactionsRoutes);
 app.use("/auth", authRoutes);
+app.use("/savings-goals", authMiddleware, savingsGoalsRoutes);
 export default app;
